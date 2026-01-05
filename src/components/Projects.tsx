@@ -19,39 +19,29 @@ const Projects = () => {
           Real-world AI systems with measurable outcomes
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-8">
           {projects.map((project, index) => (
             <Card
               key={project.id}
-              className="group cursor-pointer border-border bg-card/50 hover:border-primary/50 hover:glow-primary transition-all duration-300"
+              className="group cursor-pointer border-border bg-card/50 hover:border-primary/50 hover-glow-primary interactive-card transition-all duration-300"
               onClick={() => setSelectedProject(project)}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <CardContent className="p-6">
-                {/* Header with GitHub link */}
+              <CardContent className="p-6 md:p-8">
+                {/* Header with title */}
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
+                  <h3 className="text-xl md:text-2xl font-semibold group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    className="p-2 rounded-md hover:bg-muted transition-colors"
-                    aria-label="View on GitHub"
-                  >
-                    <Github className="w-5 h-5 text-muted-foreground hover:text-foreground" />
-                  </a>
                 </div>
 
                 {/* Description */}
-                <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+                <p className="text-muted-foreground mb-6 leading-relaxed">
                   {project.shortDescription}
                 </p>
 
                 {/* Tech stack badges */}
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2 mb-6">
                   {project.techStack.map((tech) => (
                     <Badge
                       key={tech}
@@ -63,14 +53,32 @@ const Projects = () => {
                   ))}
                 </div>
 
-                {/* Quick metrics preview */}
-                <div className="flex items-center justify-between pt-4 border-t border-border">
-                  <span className="text-xs text-muted-foreground">
-                    {project.results.metrics}
-                  </span>
-                  <span className="text-xs text-primary flex items-center gap-1">
-                    View details
-                    <ExternalLink className="w-3 h-3" />
+                {/* Quick metrics */}
+                <p className="text-sm text-muted-foreground mb-6">
+                  {project.results.metrics}
+                </p>
+
+                {/* Action links row */}
+                <div className="flex items-center gap-4 pt-4 border-t border-border">
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    <Github className="w-4 h-4" />
+                    GitHub
+                  </a>
+                  <span
+                    className="inline-flex items-center gap-1.5 text-sm text-primary cursor-pointer"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedProject(project);
+                    }}
+                  >
+                    View Details
+                    <ExternalLink className="w-3.5 h-3.5" />
                   </span>
                 </div>
               </CardContent>

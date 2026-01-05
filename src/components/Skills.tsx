@@ -92,8 +92,8 @@ const Skills = () => {
           Tools and technologies I use to build intelligent systems
         </p>
 
-        {/* Larger cards with more spacing */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Two cards per row with generous spacing */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {skillCategories.map((category) => {
             const Icon = category.icon;
             const colors = colorClasses[category.color as keyof typeof colorClasses];

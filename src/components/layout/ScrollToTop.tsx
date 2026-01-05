@@ -1,13 +1,20 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const { pathname } = useLocation();
 
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  // Show/hide scroll button based on scroll position
   useEffect(() => {
     const handleScroll = () => {
-      // Different thresholds for mobile vs desktop
       const isMobile = window.innerWidth < 768;
       const threshold = isMobile ? 650 : 400;
       setIsVisible(window.scrollY > threshold);
@@ -23,7 +30,6 @@ const ScrollToTop = () => {
   }, []);
 
   const scrollToTop = () => {
-    // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     
     window.scrollTo({
@@ -37,7 +43,7 @@ const ScrollToTop = () => {
       variant="secondary"
       size="icon"
       onClick={scrollToTop}
-      className={`fixed bottom-6 right-6 z-40 rounded-full shadow-md transition-opacity duration-200 ${
+      className={`fixed bottom-6 right-6 z-40 rounded-full shadow-md hover-glow-primary transition-all duration-200 ${
         isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
       aria-label="Scroll to top"

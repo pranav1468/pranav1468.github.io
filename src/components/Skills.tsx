@@ -102,7 +102,7 @@ const Skills = () => {
             return (
               <div
                 key={category.title}
-                className={`p-5 rounded-xl border bg-card/50 transition-all duration-300 ${colors.border} ${
+                className={`p-4 rounded-lg border bg-card/50 transition-all duration-300 ${colors.border} ${
                   isHovered ? `${colors.glow} -translate-y-1` : ""
                 }`}
                 onMouseEnter={() => setHoveredCard(category.title)}

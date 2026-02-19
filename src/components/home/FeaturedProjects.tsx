@@ -50,28 +50,28 @@ const FeaturedProjects = () => {
 
               {/* Actions: GitHub, Live Demo, View Details */}
               <div className="flex items-center gap-4">
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  className="text-muted-foreground hover:text-foreground hover-glow-primary transition-all duration-200"
-                  aria-label="View on GitHub"
-                >
-                  <Github className="w-5 h-5" />
-                </a>
                 {project.liveUrl && (
                   <a
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
-                    className="text-muted-foreground hover:text-foreground hover-glow-primary transition-all duration-200"
-                    aria-label="View Live Demo"
+                    className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    <ExternalLink className="w-5 h-5" />
+                    <ExternalLink className="w-4 h-4" />
+                    Live Demo
                   </a>
                 )}
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Github className="w-4 h-4" />
+                  Source Code
+                </a>
                 <Link
                   to={`/projects/${project.id}`}
                   className="inline-flex items-center gap-1 text-sm text-primary hover:underline"

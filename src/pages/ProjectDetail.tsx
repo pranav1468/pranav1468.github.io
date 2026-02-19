@@ -71,17 +71,31 @@ const ProjectDetail = () => {
                 ))}
               </div>
 
-              {/* GitHub link */}
-              <Button variant="outline" size="sm" asChild>
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Github className="w-4 h-4 mr-2" />
-                  View on GitHub
-                </a>
-              </Button>
+              {/* Action buttons */}
+              <div className="flex items-center gap-3">
+                {project.liveUrl && (
+                  <Button variant="outline" size="sm" asChild>
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ExternalLink className="w-4 h-4 mr-2" />
+                      Live Demo
+                    </a>
+                  </Button>
+                )}
+                <Button variant="outline" size="sm" asChild>
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Github className="w-4 h-4 mr-2" />
+                    Source Code
+                  </a>
+                </Button>
+              </div>
             </header>
 
             {/* Content sections */}

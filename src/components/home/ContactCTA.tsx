@@ -17,7 +17,7 @@ const ContactCTA = () => {
           className="glow-primary bg-primary text-primary-foreground hover:bg-primary/90"
           asChild
         >
-          <a href="mailto:pranav.baghare@email.com">
+          <a href="mailto:pranavbaghare@gmail.com">
             <Mail className="mr-2 h-5 w-5" />
             Say Hello
           </a>

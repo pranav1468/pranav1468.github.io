@@ -6,8 +6,8 @@ const contactItems = [
   {
     icon: Mail,
     label: "Email",
-    value: "pranav.baghare@email.com",
-    href: "mailto:pranav.baghare@email.com",
+    value: "pranavbaghare@gmail.com",
+    href: "mailto:pranavbaghare@gmail.com",
     color: "primary",
   },
   {
@@ -60,7 +60,7 @@ const Contact = () => {
         {/* Location */}
         <div className="flex items-center justify-center gap-2 text-muted-foreground mb-14">
           <MapPin className="w-4 h-4" />
-          <span>India</span>
+          <span>Noida, India</span>
         </div>
 
         {/* Contact cards with hover effects */}

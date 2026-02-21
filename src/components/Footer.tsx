@@ -18,7 +18,7 @@ const Footer = () => {
           {/* Social links */}
           <div className="flex items-center gap-4">
             <a
-              href="mailto:pranav.baghare@email.com"
+              href="mailto:pranavbaghare@gmail.com"
               className="p-2 rounded-md text-muted-foreground hover:text-primary hover:bg-muted transition-colors"
               aria-label="Email"
             >

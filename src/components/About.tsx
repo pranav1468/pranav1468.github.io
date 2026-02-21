@@ -75,14 +75,14 @@ const About = () => {
           <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
             <span className="flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50 border border-border/50 text-muted-foreground hover:bg-muted hover:border-border transition-all duration-200 cursor-default">
               <MapPin className="w-4 h-4 text-primary" />
-              Indore, India
+              Noida, India
             </span>
             <a 
-              href="mailto:pranav.baghare@email.com" 
+              href="mailto:pranavbaghare@gmail.com" 
               className="flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50 border border-border/50 text-muted-foreground hover:bg-primary/10 hover:border-primary/50 hover:text-foreground transition-all duration-200"
             >
               <Mail className="w-4 h-4 text-primary" />
-              pranav.baghare@email.com
+              pranavbaghare@gmail.com
             </a>
           </div>
         </div>

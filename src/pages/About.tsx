@@ -34,15 +34,15 @@ const About = () => {
             <div className="flex items-center gap-4 text-muted-foreground mb-12">
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-primary" />
-                <span>Indore, India</span>
+                <span>Noida, India</span>
               </div>
               <span className="text-border">•</span>
               <a 
-                href="mailto:pranav.baghare@email.com" 
+                href="mailto:pranavbaghare@gmail.com" 
                 className="flex items-center gap-2 hover:text-primary transition-colors"
               >
                 <Mail className="w-4 h-4" />
-                <span>pranav.baghare@email.com</span>
+                <span>pranavbaghare@gmail.com</span>
               </a>
             </div>
 

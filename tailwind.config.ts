@@ -53,9 +53,19 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         glow: {
-          primary: "hsl(var(--glow-primary))",
-          secondary: "hsl(var(--glow-secondary))",
-          accent: "hsl(var(--glow-accent))",
+          primary: "hsl(var(--signal))",
+          secondary: "hsl(var(--moss))",
+          accent: "hsl(var(--signal))",
+        },
+        signal: {
+          DEFAULT: "hsl(var(--signal))",
+          soft: "hsl(var(--signal-soft))",
+        },
+        moss: "hsl(var(--moss))",
+        ink: {
+          950: "hsl(var(--ink-950))",
+          900: "hsl(var(--ink-900))",
+          800: "hsl(var(--ink-800))",
         },
       },
       borderRadius: {

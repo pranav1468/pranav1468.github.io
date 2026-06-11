@@ -14,8 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Space Grotesk", "system-ui", "sans-serif"],
-        mono: ["JetBrains Mono", "monospace"],
+        sans: ["Geist", "system-ui", "sans-serif"],
+        display: ["Instrument Serif", "Times New Roman", "serif"],
+        mono: ["JetBrains Mono", "ui-monospace", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -52,9 +53,19 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         glow: {
-          primary: "hsl(var(--glow-primary))",
-          secondary: "hsl(var(--glow-secondary))",
-          accent: "hsl(var(--glow-accent))",
+          primary: "hsl(var(--signal))",
+          secondary: "hsl(var(--moss))",
+          accent: "hsl(var(--signal))",
+        },
+        signal: {
+          DEFAULT: "hsl(var(--signal))",
+          soft: "hsl(var(--signal-soft))",
+        },
+        moss: "hsl(var(--moss))",
+        ink: {
+          950: "hsl(var(--ink-950))",
+          900: "hsl(var(--ink-900))",
+          800: "hsl(var(--ink-800))",
         },
       },
       borderRadius: {

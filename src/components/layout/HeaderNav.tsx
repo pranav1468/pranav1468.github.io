@@ -49,7 +49,7 @@ export default function HeaderNav() {
           : "bg-transparent py-5"
       }`}
     >
-      <div className="w-full max-w-[1550px] mx-auto px-6 sm:px-10 lg:px-16 xl:pl-16 xl:pr-36 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
         {/* Left: Brand Identity */}
         <div
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

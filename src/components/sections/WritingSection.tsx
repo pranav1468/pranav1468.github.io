@@ -61,15 +61,15 @@ export default function WritingSection() {
   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
 
   return (
-    <section id="writing" className="relative py-14 sm:py-20 px-6 sm:px-10 lg:px-16 xl:pl-16 xl:pr-36 w-full max-w-[1550px] mx-auto z-10">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+    <section id="writing" className="relative py-20 sm:py-24 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto z-10">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
         {/* Left Column (4 Cols) */}
         <div className="lg:col-span-4">
-          <div className="font-mono text-xs sm:text-sm text-white/50 uppercase tracking-widest mb-4">
+          <div className="font-mono text-xs text-white/50 uppercase tracking-widest mb-4">
             06 / WRITING
           </div>
 
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.12] mb-5">
+          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-[1.15] mb-5">
             Thoughts,<br />
             notes and<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-300">
@@ -77,21 +77,21 @@ export default function WritingSection() {
             </span>
           </h2>
 
-          <p className="text-base sm:text-lg text-white/70 leading-relaxed max-w-md mb-7 font-sans">
+          <p className="text-base text-white/60 leading-relaxed max-w-md mb-7 font-sans">
             Things I've learned while working on AI, computer vision and real-world projects.
           </p>
 
           <button
             onClick={() => setSelectedPost(posts[0])}
-            className="flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.03] text-white px-6 py-3 text-xs sm:text-sm font-mono hover:border-[#f97316] hover:text-[#f97316] transition-all"
+            className="flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.03] text-white px-5 py-2.5 text-xs font-mono hover:border-[#f97316] hover:text-[#f97316] transition-all"
           >
             <span>Read All Posts</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
 
         {/* Right Column (8 Cols) - 3 Blog Cards */}
-        <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
+        <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-5">
           {posts.map((post) => (
             <div
               key={post.id}
@@ -110,18 +110,18 @@ export default function WritingSection() {
               </div>
 
               {/* Content */}
-              <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
-                <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-sky-300 transition-colors line-clamp-2 leading-snug mb-4">
+              <div className="p-5 flex-1 flex flex-col justify-between">
+                <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-sky-300 transition-colors line-clamp-2 leading-snug mb-4">
                   {post.title}
                 </h3>
 
-                <div className="flex items-center justify-between pt-3.5 border-t border-white/[0.08] text-xs sm:text-sm font-mono text-white/50">
+                <div className="flex items-center justify-between pt-3 border-t border-white/[0.06] text-xs font-mono text-white/50">
                   <span>
                     {post.date} · {post.readTime}
                   </span>
 
                   {/* Circular Action Arrow */}
-                  <div className="w-9 h-9 rounded-full border border-white/20 group-hover:border-[#f97316] group-hover:bg-[#f97316]/10 group-hover:text-[#f97316] flex items-center justify-center transition-all">
+                  <div className="w-8 h-8 rounded-full border border-white/20 group-hover:border-[#f97316] group-hover:bg-[#f97316]/10 group-hover:text-[#f97316] flex items-center justify-center transition-all">
                     <ArrowUpRight className="w-4 h-4 text-white/70 group-hover:text-[#f97316] transition-colors" />
                   </div>
                 </div>

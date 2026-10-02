@@ -35,7 +35,7 @@ const Index = () => {
         <StickyNavRail />
 
         {/* Main Content Sections exactly aligned with Reference Design */}
-        <main className="relative z-10 space-y-12 sm:space-y-16">
+        <main className="relative z-10">
           {/* Section 01: Hero */}
           <HeroSection />
 

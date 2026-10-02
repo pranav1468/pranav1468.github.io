@@ -9,20 +9,20 @@ export default function SkillsSection() {
   };
 
   return (
-    <section id="skills" className="relative py-24 sm:py-32 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto z-10">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+    <section id="skills" className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto z-10">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         {/* Left Column (5 Cols) */}
         <div className="lg:col-span-5">
-          <div className="font-mono text-xs text-white/50 uppercase tracking-widest mb-4">
+          <div className="font-mono text-xs text-white/50 uppercase tracking-widest mb-3">
             03 / SKILLS
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-[1.15] mb-6">
+          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-[1.15] mb-4">
             Tools that turn<br />
             ideas into <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-purple-600">impact.</span>
           </h2>
 
-          <p className="text-base text-white/60 leading-relaxed max-w-md mb-8 font-sans">
+          <p className="text-base text-white/60 leading-relaxed max-w-md mb-6 font-sans">
             A combination of deep learning, computer vision and software development skills to build end-to-end solutions.
           </p>
 
@@ -39,12 +39,12 @@ export default function SkillsSection() {
         <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-4">
           
           {/* Card 1: AI / Deep Learning */}
-          <div className="rounded-2xl border border-white/10 bg-[#060a18]/70 backdrop-blur-md p-6 flex flex-col justify-between hover:border-purple-500/40 transition-all duration-300 shadow-xl">
-            <h3 className="text-sm font-semibold text-white/90 mb-6 font-sans">
+          <div className="rounded-2xl border border-white/10 bg-[#060a18]/70 backdrop-blur-md p-5 flex flex-col justify-between hover:border-purple-500/40 transition-all duration-300 shadow-xl">
+            <h3 className="text-sm font-semibold text-white/90 mb-4 font-sans">
               AI / Deep Learning
             </h3>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <div className="w-7 h-7 rounded-lg bg-[#FF6F00]/15 flex items-center justify-center font-bold text-[#FF6F00] text-xs">
                   TF
@@ -76,12 +76,12 @@ export default function SkillsSection() {
           </div>
 
           {/* Card 2: Computer Vision */}
-          <div className="rounded-2xl border border-white/10 bg-[#060a18]/70 backdrop-blur-md p-6 flex flex-col justify-between hover:border-sky-500/40 transition-all duration-300 shadow-xl">
-            <h3 className="text-sm font-semibold text-white/90 mb-6 font-sans">
+          <div className="rounded-2xl border border-white/10 bg-[#060a18]/70 backdrop-blur-md p-5 flex flex-col justify-between hover:border-sky-500/40 transition-all duration-300 shadow-xl">
+            <h3 className="text-sm font-semibold text-white/90 mb-4 font-sans">
               Computer Vision
             </h3>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <div className="w-7 h-7 rounded-lg bg-sky-500/15 flex items-center justify-center font-bold text-sky-400 text-xs">
                   CV
@@ -113,12 +113,12 @@ export default function SkillsSection() {
           </div>
 
           {/* Card 3: Development */}
-          <div className="rounded-2xl border border-white/10 bg-[#060a18]/70 backdrop-blur-md p-6 flex flex-col justify-between hover:border-amber-500/40 transition-all duration-300 shadow-xl">
-            <h3 className="text-sm font-semibold text-white/90 mb-6 font-sans">
+          <div className="rounded-2xl border border-white/10 bg-[#060a18]/70 backdrop-blur-md p-5 flex flex-col justify-between hover:border-amber-500/40 transition-all duration-300 shadow-xl">
+            <h3 className="text-sm font-semibold text-white/90 mb-4 font-sans">
               Development
             </h3>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <div className="w-7 h-7 rounded-lg bg-blue-500/15 flex items-center justify-center font-bold text-blue-400 text-xs">
                   🐍

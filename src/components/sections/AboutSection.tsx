@@ -9,16 +9,16 @@ export default function AboutSection() {
   };
 
   return (
-    <section id="about" className="relative py-24 sm:py-32 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto z-10">
+    <section id="about" className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto z-10">
       {/* 2-Column Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         {/* Left Column (7 Cols) */}
         <div className="lg:col-span-7">
-          <div className="font-mono text-xs text-white/50 uppercase tracking-widest mb-4">
+          <div className="font-mono text-xs text-white/50 uppercase tracking-widest mb-3">
             02 / ABOUT
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-[1.15] mb-6">
+          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-[1.15] mb-4">
             A curious builder<br />
             in AI and<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-purple-400">
@@ -26,7 +26,7 @@ export default function AboutSection() {
             </span>
           </h2>
 
-          <p className="text-base text-white/60 leading-relaxed max-w-xl mb-8 font-sans">
+          <p className="text-base text-white/60 leading-relaxed max-w-xl mb-6 font-sans">
             I'm a Software Developer (AI/ML) at Mantra Softech, passionate about building practical solutions using deep learning and computer vision. I enjoy working on real-world problems — from satellite imagery analysis to medical imaging and autonomous driving.
           </p>
 
@@ -40,8 +40,8 @@ export default function AboutSection() {
         </div>
 
         {/* Right Column (5 Cols): Same Technology / Real-World Impact */}
-        <div className="lg:col-span-5 space-y-8 pt-4">
-          <div className="font-mono text-[10px] text-white/40 uppercase tracking-[0.2em] mb-6">
+        <div className="lg:col-span-5 space-y-5 pt-2">
+          <div className="font-mono text-[10px] text-white/40 uppercase tracking-[0.2em] mb-4">
             SAME TECHNOLOGY<br />
             DIFFERENT REAL-WORLD IMPACT
           </div>

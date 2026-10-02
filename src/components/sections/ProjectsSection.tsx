@@ -81,20 +81,20 @@ export default function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section id="projects" className="relative py-24 sm:py-32 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto z-10">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+    <section id="projects" className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto z-10">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         {/* Left Column (4 Cols) */}
         <div className="lg:col-span-4">
-          <div className="font-mono text-xs text-white/50 uppercase tracking-widest mb-4">
+          <div className="font-mono text-xs text-white/50 uppercase tracking-widest mb-3">
             07 / PROJECTS
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-[1.15] mb-6">
+          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-[1.15] mb-4">
             From ideas<br />
             to <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-indigo-300 to-purple-500">real-world<br />applications.</span>
           </h2>
 
-          <p className="text-base text-white/60 leading-relaxed max-w-md mb-8 font-sans">
+          <p className="text-base text-white/60 leading-relaxed max-w-md mb-6 font-sans">
             A collection of projects in computer vision, deep learning and real-world AI applications.
           </p>
 
@@ -108,7 +108,7 @@ export default function ProjectsSection() {
         </div>
 
         {/* Right Column (8 Cols) - 3 Project Cards */}
-        <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
           {projects.map((project) => (
             <div
               key={project.id}
@@ -127,14 +127,14 @@ export default function ProjectsSection() {
               </div>
 
               {/* Content */}
-              <div className="p-5 flex-1 flex flex-col justify-between">
-                <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-sky-300 transition-colors line-clamp-2 leading-snug mb-4">
+              <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
+                <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-sky-300 transition-colors line-clamp-2 leading-snug mb-3">
                   {project.title}
                 </h3>
 
                 <div>
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-1.5 mb-4">
+                  <div className="flex flex-wrap gap-1.5 mb-3">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}

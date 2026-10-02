@@ -2,15 +2,15 @@ import { Building2, Sparkles, MapPin } from "lucide-react";
 
 export default function ExperienceSection() {
   return (
-    <section id="experience" className="relative py-24 sm:py-32 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto z-10">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+    <section id="experience" className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto z-10">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         {/* Left Column (5 Cols) */}
         <div className="lg:col-span-5">
-          <div className="font-mono text-xs text-white/50 uppercase tracking-widest mb-4">
+          <div className="font-mono text-xs text-white/50 uppercase tracking-widest mb-3">
             04 / EXPERIENCE
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-[1.15] mb-6">
+          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-[1.15] mb-4">
             Turning research<br />
             into <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-indigo-300 to-purple-500">real-world<br />solutions.</span>
           </h2>
@@ -18,7 +18,7 @@ export default function ExperienceSection() {
 
         {/* Right Column (7 Cols) - Glassmorphic Experience Card */}
         <div className="lg:col-span-7">
-          <div className="rounded-2xl border border-white/10 bg-[#060a18]/75 backdrop-blur-md p-6 sm:p-8 hover:border-purple-500/40 transition-all duration-300 shadow-xl group">
+          <div className="rounded-2xl border border-white/10 bg-[#060a18]/75 backdrop-blur-md p-5 sm:p-7 hover:border-purple-500/40 transition-all duration-300 shadow-xl group">
             <div className="flex flex-col sm:flex-row items-start gap-5">
               {/* Glowing Building Icon */}
               <div className="w-14 h-14 rounded-xl bg-sky-500/10 border border-sky-500/25 flex items-center justify-center text-sky-400 shrink-0 group-hover:scale-105 group-hover:border-sky-400/50 transition-all shadow-[0_0_20px_rgba(56,189,248,0.2)]">

@@ -2,15 +2,15 @@ import { GraduationCap, Award } from "lucide-react";
 
 export default function EducationSection() {
   return (
-    <section id="education" className="relative py-24 sm:py-32 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto z-10">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+    <section id="education" className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto z-10">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         {/* Left Column (5 Cols) */}
         <div className="lg:col-span-5">
-          <div className="font-mono text-xs text-white/50 uppercase tracking-widest mb-4">
+          <div className="font-mono text-xs text-white/50 uppercase tracking-widest mb-3">
             05 / EDUCATION
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-[1.15] mb-6">
+          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-[1.15] mb-4">
             A strong<br />
             academic<br />
             foundation.
@@ -18,10 +18,10 @@ export default function EducationSection() {
         </div>
 
         {/* Right Column (7 Cols) - 2 Stacked Education Cards */}
-        <div className="lg:col-span-7 space-y-4">
+        <div className="lg:col-span-7 space-y-3">
           
           {/* Institution 1: CDAC Noida */}
-          <div className="rounded-2xl border border-white/10 bg-[#060a18]/75 backdrop-blur-md p-6 sm:p-7 hover:border-teal-500/40 transition-all duration-300 shadow-xl group">
+          <div className="rounded-2xl border border-white/10 bg-[#060a18]/75 backdrop-blur-md p-5 sm:p-6 hover:border-teal-500/40 transition-all duration-300 shadow-xl group">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div className="flex items-center gap-4">
                 {/* CDAC Badge Icon */}
@@ -47,7 +47,7 @@ export default function EducationSection() {
           </div>
 
           {/* Institution 2: SVVV Indore */}
-          <div className="rounded-2xl border border-white/10 bg-[#060a18]/75 backdrop-blur-md p-6 sm:p-7 hover:border-rose-500/40 transition-all duration-300 shadow-xl group">
+          <div className="rounded-2xl border border-white/10 bg-[#060a18]/75 backdrop-blur-md p-5 sm:p-6 hover:border-rose-500/40 transition-all duration-300 shadow-xl group">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div className="flex items-center gap-4">
                 {/* SVVV Badge Icon */}

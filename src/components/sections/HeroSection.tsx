@@ -1,7 +1,11 @@
-import { ArrowRight, FileText } from "lucide-react";
+import { useState } from "react";
+import { ArrowRight, FileText, Mail, Github, Linkedin, Check } from "lucide-react";
 import confetti from "canvas-confetti";
 
 export default function HeroSection() {
+  const [copied, setCopied] = useState(false);
+  const email = "pranavbaghare14@gmail.com";
+
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
@@ -16,6 +20,18 @@ export default function HeroSection() {
       origin: { y: 0.5 },
       colors: ["#f97316", "#38bdf8", "#c084fc", "#ffffff"],
     });
+  };
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    confetti({
+      particleCount: 40,
+      spread: 60,
+      origin: { y: 0.6 },
+      colors: ["#f97316", "#38bdf8", "#c084fc"],
+    });
+    setTimeout(() => setCopied(false), 2500);
   };
 
   return (
@@ -42,8 +58,8 @@ export default function HeroSection() {
           I'm Pranav Baghare, a Software Developer (AI/ML) passionate about Computer Vision and Deep Learning, turning data into practical, real-world solutions.
         </p>
 
-        {/* CTAs */}
-        <div className="flex flex-wrap items-center gap-4">
+        {/* Primary CTAs (View My Work & Download Resume) */}
+        <div className="flex flex-wrap items-center gap-4 mb-4">
           <button
             onClick={() => scrollTo("projects")}
             className="flex items-center gap-2.5 rounded-full bg-white text-black px-7 py-3.5 text-sm sm:text-base font-semibold hover:bg-white/90 transition-all shadow-xl hover:translate-x-0.5"
@@ -60,6 +76,50 @@ export default function HeroSection() {
           >
             <FileText className="w-4 h-4 text-white/70" />
             <span>Download Resume</span>
+          </a>
+        </div>
+
+        {/* Secondary Social/Contact Pills (Email Me, GitHub, LinkedIn) */}
+        <div className="flex flex-wrap items-center gap-3">
+          {/* Email Me Button */}
+          <button
+            onClick={handleCopyEmail}
+            className="flex items-center gap-2.5 rounded-full border border-white/20 bg-white/[0.03] backdrop-blur-sm hover:border-[#f97316] hover:text-[#f97316] hover:bg-[#f97316]/10 px-5 py-2.5 text-xs sm:text-sm font-sans text-white transition-all shadow-sm group"
+            title="Click to copy email address"
+          >
+            {copied ? (
+              <>
+                <Check className="w-4 h-4 text-emerald-400" />
+                <span className="text-emerald-300 font-medium">Email Copied!</span>
+              </>
+            ) : (
+              <>
+                <Mail className="w-4 h-4 text-white/70 group-hover:text-[#f97316] transition-colors" />
+                <span>Email Me</span>
+              </>
+            )}
+          </button>
+
+          {/* GitHub Button */}
+          <a
+            href="https://github.com/pranav1468"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-2.5 rounded-full border border-white/20 bg-white/[0.03] backdrop-blur-sm hover:border-[#f97316] hover:text-[#f97316] hover:bg-[#f97316]/10 px-5 py-2.5 text-xs sm:text-sm font-sans text-white transition-all shadow-sm group"
+          >
+            <Github className="w-4 h-4 text-white/70 group-hover:text-[#f97316] transition-colors" />
+            <span>GitHub</span>
+          </a>
+
+          {/* LinkedIn Button */}
+          <a
+            href="https://linkedin.com/in/pranav-baghare"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-2.5 rounded-full border border-white/20 bg-white/[0.03] backdrop-blur-sm hover:border-[#f97316] hover:text-[#f97316] hover:bg-[#f97316]/10 px-5 py-2.5 text-xs sm:text-sm font-sans text-white transition-all shadow-sm group"
+          >
+            <Linkedin className="w-4 h-4 text-[#0077b5] group-hover:text-[#f97316] transition-colors" />
+            <span>LinkedIn</span>
           </a>
         </div>
       </div>

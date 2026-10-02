@@ -17,4 +17,14 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          three: ["three"],
+          vendor: ["react", "react-dom", "react-router-dom"],
+        },
+      },
+    },
+  },
 }));

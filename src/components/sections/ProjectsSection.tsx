@@ -81,34 +81,34 @@ export default function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section id="projects" className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto z-10">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+    <section id="projects" className="relative py-14 sm:py-20 px-6 sm:px-10 lg:px-16 xl:pl-16 xl:pr-36 w-full max-w-[1550px] mx-auto z-10">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
         {/* Left Column (4 Cols) */}
         <div className="lg:col-span-4">
-          <div className="font-mono text-xs text-white/50 uppercase tracking-widest mb-3">
+          <div className="font-mono text-xs sm:text-sm text-white/50 uppercase tracking-widest mb-4">
             07 / PROJECTS
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-[1.15] mb-4">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.12] mb-5">
             From ideas<br />
             to <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-indigo-300 to-purple-500">real-world<br />applications.</span>
           </h2>
 
-          <p className="text-base text-white/60 leading-relaxed max-w-md mb-6 font-sans">
+          <p className="text-base sm:text-lg text-white/70 leading-relaxed max-w-md mb-7 font-sans">
             A collection of projects in computer vision, deep learning and real-world AI applications.
           </p>
 
           <button
             onClick={() => setSelectedProject(projects[0])}
-            className="flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.03] text-white px-5 py-2.5 text-xs font-mono hover:border-[#f97316] hover:text-[#f97316] transition-all"
+            className="flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.03] text-white px-6 py-3 text-xs sm:text-sm font-mono hover:border-[#f97316] hover:text-[#f97316] transition-all"
           >
             <span>View All Projects</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <ArrowRight className="w-4 h-4" />
           </button>
         </div>
 
         {/* Right Column (8 Cols) - 3 Project Cards */}
-        <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+        <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
           {projects.map((project) => (
             <div
               key={project.id}
@@ -127,18 +127,18 @@ export default function ProjectsSection() {
               </div>
 
               {/* Content */}
-              <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
-                <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-sky-300 transition-colors line-clamp-2 leading-snug mb-3">
+              <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+                <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-sky-300 transition-colors line-clamp-2 leading-snug mb-4">
                   {project.title}
                 </h3>
 
                 <div>
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-1.5 mb-3">
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="text-[11px] font-mono text-white/70 bg-white/[0.05] border border-white/10 px-2 py-0.5 rounded-md"
+                        className="text-xs font-mono text-white/80 bg-white/[0.06] border border-white/10 px-2.5 py-1 rounded-md"
                       >
                         {tag}
                       </span>
@@ -146,9 +146,9 @@ export default function ProjectsSection() {
                   </div>
 
                   {/* Circular Action Arrow */}
-                  <div className="flex items-center justify-between pt-3 border-t border-white/[0.06]">
-                    <span className="text-xs font-mono text-white/40">Inspect Details</span>
-                    <div className="w-8 h-8 rounded-full border border-white/20 group-hover:border-[#f97316] group-hover:bg-[#f97316]/10 flex items-center justify-center transition-all">
+                  <div className="flex items-center justify-between pt-3.5 border-t border-white/[0.08]">
+                    <span className="text-xs font-mono text-white/50">Inspect Details</span>
+                    <div className="w-9 h-9 rounded-full border border-white/20 group-hover:border-[#f97316] group-hover:bg-[#f97316]/10 flex items-center justify-center transition-all">
                       <ArrowUpRight className="w-4 h-4 text-white/70 group-hover:text-[#f97316] transition-colors" />
                     </div>
                   </div>

@@ -1,13 +1,15 @@
 import { useState } from "react";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import NeuralBackground3D from "@/components/3d/NeuralBackground3D";
-import ActiveBentoGrid from "@/components/home/ActiveBentoGrid";
-import About from "@/components/About";
-import Skills from "@/components/Skills";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
-import AEOFAQSection from "@/components/home/AEOFAQSection";
+import InteractiveSynapseBackground from "@/components/3d/InteractiveSynapseBackground";
+import HeaderNav from "@/components/layout/HeaderNav";
+import StickyNavRail from "@/components/layout/StickyNavRail";
+import HeroSection from "@/components/sections/HeroSection";
+import AboutSection from "@/components/sections/AboutSection";
+import SkillsSection from "@/components/sections/SkillsSection";
+import ExperienceSection from "@/components/sections/ExperienceSection";
+import EducationSection from "@/components/sections/EducationSection";
+import WritingSection from "@/components/sections/WritingSection";
+import ProjectsSection from "@/components/sections/ProjectsSection";
+import ContactSection from "@/components/sections/ContactSection";
 import RecruiterModal from "@/components/RecruiterModal";
 import SEO from "@/components/layout/SEO";
 
@@ -16,44 +18,53 @@ const Index = () => {
 
   return (
     <>
-      <SEO 
-        title="Pranav Baghare | Software Developer (AI/ML) & Computer Vision" 
-        description="Computer Vision & Deep Learning Engineer portfolio. Building production machine learning systems, Modified U-Nets, DenseNet diagnostics, and real-time perception models."
+      <SEO
+        title="Pranav Baghare | Software Developer (AI/ML) & Computer Vision"
+        description="Software Developer (AI/ML) at Mantra Softech specializing in Computer Vision, Deep Learning, and real-world AI solutions. Satellite imagery segmentation, DenseNet medical diagnostics, and edge perception."
         path="/"
       />
 
-      <div className="relative min-h-screen bg-background text-foreground overflow-x-hidden">
-        {/* Interactive 3D WebGL Neural Constellation Background */}
-        <NeuralBackground3D opacity={0.65} />
+      <div className="relative min-h-screen bg-[#030712] text-white overflow-x-hidden selection:bg-[#f97316]/30 selection:text-white">
+        {/* 3D Interactive Synapse & Bioluminescent Neural Space Background */}
+        <InteractiveSynapseBackground />
 
-        {/* Global Navigation HUD */}
-        <Navbar onOpenRecruiterModal={() => setIsRecruiterModalOpen(true)} />
+        {/* Floating Top Navigation Header */}
+        <HeaderNav />
 
-        {/* Asymmetric 3D Split Hero */}
-        <Hero onOpenRecruiterModal={() => setIsRecruiterModalOpen(true)} />
+        {/* Right-Side Vertical Progress Rail (01 Home to 08 Contact) */}
+        <StickyNavRail />
 
-        {/* Active Bento Grid (Interactive Proof of Work & Telemetry) */}
-        <ActiveBentoGrid />
+        {/* Main Content Sections exactly aligned with Reference Design */}
+        <main className="relative z-10 space-y-12 sm:space-y-16">
+          {/* Section 01: Hero */}
+          <HeroSection />
 
-        {/* Skills Breakdown */}
-        <Skills />
+          {/* Section 02: About */}
+          <AboutSection />
 
-        {/* Deep-Dive About & Philosophy */}
-        <About />
+          {/* Section 03: Skills */}
+          <SkillsSection />
 
-        {/* AI & Recruiter Knowledge Base / FAQ (AEO & Schema Optimized) */}
-        <AEOFAQSection />
+          {/* Section 04: Experience */}
+          <ExperienceSection />
 
-        {/* Contact Section */}
-        <Contact />
+          {/* Section 05: Education */}
+          <EducationSection />
 
-        {/* Footer with System Stats */}
-        <Footer />
+          {/* Section 06: Writing */}
+          <WritingSection />
+
+          {/* Section 07: Projects */}
+          <ProjectsSection />
+
+          {/* Section 08: Contact & Footer */}
+          <ContactSection />
+        </main>
 
         {/* Recruiter Fast-View (10-Second Summary) Modal */}
-        <RecruiterModal 
-          isOpen={isRecruiterModalOpen} 
-          onClose={() => setIsRecruiterModalOpen(false)} 
+        <RecruiterModal
+          isOpen={isRecruiterModalOpen}
+          onClose={() => setIsRecruiterModalOpen(false)}
         />
       </div>
     </>

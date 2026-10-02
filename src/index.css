@@ -294,6 +294,67 @@
   .fade-up { animation: fadeUp 600ms var(--ease-out-expo) both; }
 
   .section-spacing { @apply py-24 md:py-32; }
+
+  /* ── 3D & Modern Visuals (Aceternity / Sanidhyy style) ── */
+  .spotlight {
+    background: radial-gradient(circle 600px at 50% 10%, rgba(120, 119, 198, 0.18), transparent 70%);
+  }
+
+  .spotlight-cyan {
+    background: radial-gradient(circle 450px at 30% 20%, rgba(0, 242, 254, 0.15), transparent 75%);
+  }
+
+  .border-beam {
+    position: relative;
+  }
+  .border-beam::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1.5px;
+    background: linear-gradient(90deg, transparent 20%, hsl(var(--signal)) 50%, #00f2fe 80%, transparent 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    background-size: 200% 100%;
+    animation: beamSweep 6s linear infinite;
+  }
+
+  @keyframes beamSweep {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  @keyframes ripplePulse {
+    0% {
+      transform: scale(0.85);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(2.4);
+      opacity: 0;
+    }
+  }
+
+  .ripple-circle {
+    position: absolute;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 91, 46, 0.4);
+    animation: ripplePulse 3.5s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+    pointer-events: none;
+  }
+
+  .text-neon-cyan {
+    color: #00f2fe;
+    text-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+  }
+
+  .text-neon-signal {
+    color: hsl(var(--signal));
+    text-shadow: 0 0 24px rgba(255, 91, 46, 0.45);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

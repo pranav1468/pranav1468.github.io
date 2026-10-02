@@ -7,6 +7,7 @@ import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import AEOFAQSection from "@/components/home/AEOFAQSection";
 import RecruiterModal from "@/components/RecruiterModal";
 import SEO from "@/components/layout/SEO";
 
@@ -39,6 +40,9 @@ const Index = () => {
 
         {/* Deep-Dive About & Philosophy */}
         <About />
+
+        {/* AI & Recruiter Knowledge Base / FAQ (AEO & Schema Optimized) */}
+        <AEOFAQSection />
 
         {/* Contact Section */}
         <Contact />

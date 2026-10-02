@@ -20,30 +20,37 @@ export default function NeuralBackground3D({
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) return;
 
-    // Scene setup
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(
-      60,
-      window.innerWidth / window.innerHeight,
-      1,
-      1000
-    );
-    camera.position.z = 320;
+    let isDisposed = false;
+    let animationFrameId: number;
 
-    let renderer: THREE.WebGLRenderer;
-    try {
-      renderer = new THREE.WebGLRenderer({
-        alpha: true,
-        antialias: true,
-        powerPreference: "high-performance",
-      });
-    } catch {
-      return; // Fallback gracefully if WebGL is unsupported
-    }
+    // Defer initialization to avoid blocking first contentful paint
+    const initTimer = setTimeout(() => {
+      if (isDisposed || !container) return;
 
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    container.appendChild(renderer.domElement);
+      // Scene setup
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(
+        60,
+        window.innerWidth / window.innerHeight,
+        1,
+        1000
+      );
+      camera.position.z = 320;
+
+      let renderer: THREE.WebGLRenderer;
+      try {
+        renderer = new THREE.WebGLRenderer({
+          alpha: true,
+          antialias: true,
+          powerPreference: "high-performance",
+        });
+      } catch {
+        return; // Fallback gracefully if WebGL is unsupported
+      }
+
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+      container.appendChild(renderer.domElement);
 
     // Particle nodes configuration
     const particleCount = window.innerWidth < 768 ? 45 : 95;
@@ -228,18 +235,25 @@ export default function NeuralBackground3D({
     animate();
 
     return () => {
+        cancelAnimationFrame(animationFrameId);
+        window.removeEventListener("mousemove", handleMouseMove);
+        window.removeEventListener("touchmove", handleTouchMove);
+        window.removeEventListener("resize", handleResize);
+        if (container && renderer && renderer.domElement && container.contains(renderer.domElement)) {
+          container.removeChild(renderer.domElement);
+        }
+        if (renderer) renderer.dispose();
+        particleGeometry.dispose();
+        lineGeometry.dispose();
+        particleMaterial.dispose();
+        lineMaterial.dispose();
+      };
+    }, 50);
+
+    return () => {
+      isDisposed = true;
+      clearTimeout(initTimer);
       cancelAnimationFrame(animationFrameId);
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("touchmove", handleTouchMove);
-      window.removeEventListener("resize", handleResize);
-      if (container && renderer.domElement) {
-        container.removeChild(renderer.domElement);
-      }
-      renderer.dispose();
-      particleGeometry.dispose();
-      lineGeometry.dispose();
-      particleMaterial.dispose();
-      lineMaterial.dispose();
     };
   }, []);
 

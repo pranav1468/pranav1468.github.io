@@ -72,7 +72,7 @@ export default function ActiveBentoGrid() {
         {/* =========================================================================
             TILE 1: SATELLITE SEGMENTATION (Interactive Wipe Slider - 8 Columns)
            ========================================================================= */}
-        <div className="lg:col-span-8 surface-card p-6 sm:p-8 flex flex-col justify-between group relative overflow-hidden border border-border/80 hover:border-signal/50 transition-all duration-300">
+        <div className="lg:col-span-8 surface-card border-beam p-6 sm:p-8 flex flex-col justify-between group relative overflow-hidden border border-border/80 hover:border-signal/50 transition-all duration-300 bg-card/80 backdrop-blur-xl">
           <div>
             <div className="flex items-center justify-between gap-4 mb-4">
               <div className="flex items-center gap-2 font-mono text-xs text-signal font-medium">
@@ -159,7 +159,7 @@ export default function ActiveBentoGrid() {
         {/* =========================================================================
             TILE 2: PNEUMONIA DIAGNOSIS GRAD-CAM (4 Columns)
            ========================================================================= */}
-        <div className="lg:col-span-4 surface-card p-6 sm:p-8 flex flex-col justify-between group relative overflow-hidden border border-border/80 hover:border-signal/50 transition-all duration-300">
+        <div className="lg:col-span-4 surface-card border-beam p-6 sm:p-8 flex flex-col justify-between group relative overflow-hidden border border-border/80 hover:border-signal/50 transition-all duration-300 bg-card/80 backdrop-blur-xl">
           <div>
             <div className="flex items-center justify-between gap-2 mb-4">
               <div className="flex items-center gap-2 font-mono text-xs text-signal font-medium">
@@ -230,7 +230,7 @@ export default function ActiveBentoGrid() {
         {/* =========================================================================
             TILE 3: AUTONOMOUS VEHICLE TRAFFIC SIGN CLASSIFIER (4 Columns)
            ========================================================================= */}
-        <div className="lg:col-span-4 surface-card p-6 sm:p-8 flex flex-col justify-between group relative overflow-hidden border border-border/80 hover:border-signal/50 transition-all duration-300">
+        <div className="lg:col-span-4 surface-card border-beam p-6 sm:p-8 flex flex-col justify-between group relative overflow-hidden border border-border/80 hover:border-signal/50 transition-all duration-300 bg-card/80 backdrop-blur-xl">
           <div>
             <div className="flex items-center justify-between gap-2 mb-4">
               <div className="flex items-center gap-2 font-mono text-xs text-signal font-medium">

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { ArrowUpRight, FileText, MapPin, Github, Linkedin, Mail, Award, CheckCircle2 } from "lucide-react";
 import confetti from "canvas-confetti";
 import InteractiveModelHUD from "@/components/3d/InteractiveModelHUD";
+import RotatingTechBadge from "@/components/3d/RotatingTechBadge";
 
 const socialLinks = [
   { icon: Github, label: "GitHub", href: "https://github.com/pranav1468" },
@@ -70,17 +71,17 @@ export default function Hero({ onOpenRecruiterModal }: HeroProps) {
   return (
     <section
       id="home"
-      className="relative min-h-screen overflow-hidden bg-grain pt-24 lg:pt-32"
+      className="relative min-h-screen overflow-hidden bg-[#030014] spotlight spotlight-cyan pt-24 lg:pt-32"
     >
       {/* Off-canvas signal orbs for depth */}
       <div className="orb orb-signal w-[520px] h-[520px] -top-40 -right-32" />
       <div className="orb orb-moss w-[380px] h-[380px] -bottom-32 -left-24" />
 
       {/* Faint lab hairlines */}
-      <div className="absolute inset-0 lab-hairlines opacity-40 pointer-events-none" />
+      <div className="absolute inset-0 lab-hairlines opacity-30 pointer-events-none" />
 
       {/* Soft fade-out toward next section */}
-      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-background pointer-events-none z-[1]" />
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-[#030014] pointer-events-none z-[1]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 pb-24">
         {/* Eyebrow row — index + status */}
@@ -95,7 +96,7 @@ export default function Hero({ onOpenRecruiterModal }: HeroProps) {
             <span>Index</span>
           </span>
 
-          <span className="eyebrow flex items-center gap-2">
+          <span className="eyebrow flex items-center gap-2 px-3 py-1 rounded-full bg-signal/10 border border-signal/25">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full rounded-full bg-signal opacity-75 animate-ping" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-signal" />
@@ -115,13 +116,15 @@ export default function Hero({ onOpenRecruiterModal }: HeroProps) {
               <span className="text-muted-foreground">— Software Developer (AI/ML)</span>
             </div>
 
-            <RevealHeadline
-              lines={[
-                { text: "Teaching machines to" },
-                { text: "see, segment, and", italic: false },
-                { text: "reason.", italic: true },
-              ]}
-            />
+            <h1 className="h-display text-foreground font-serif tracking-tight">
+              <span className="sr-only">Pranav Baghare — Software Developer (AI/ML) & Computer Vision Engineer</span>
+              <span className="block text-foreground">Teaching machines to</span>
+              <span className="block">
+                <span className="text-neon-cyan">see</span>,{" "}
+                <span className="text-neon-signal">segment</span>, and{" "}
+                <span className="italic-emphasis">reason.</span>
+              </span>
+            </h1>
 
             <p
               className="mt-8 max-w-xl text-base sm:text-lg leading-relaxed text-muted-foreground fade-up"
@@ -208,8 +211,15 @@ export default function Hero({ onOpenRecruiterModal }: HeroProps) {
           </div>
 
           {/* RIGHT — Interactive 3D Model HUD */}
-          <div className="lg:col-span-5 relative fade-up" style={{ animationDelay: "300ms" }}>
+          <div className="lg:col-span-5 relative fade-up flex flex-col items-center gap-6" style={{ animationDelay: "300ms" }}>
             <InteractiveModelHUD />
+            <div className="hidden lg:flex items-center justify-between w-full max-w-md px-2">
+              <RotatingTechBadge onClick={scrollToProjects} />
+              <div className="text-right font-mono text-xs text-muted-foreground">
+                <div className="text-[11px] text-muted-foreground/60 uppercase tracking-widest">Interactive Prototypes</div>
+                <div className="text-signal font-semibold">Active Bento Grid ↓</div>
+              </div>
+            </div>
           </div>
         </div>
 

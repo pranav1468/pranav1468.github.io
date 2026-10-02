@@ -1,159 +1,229 @@
 import { useState } from "react";
-import { GraduationCap, Code, Brain, Lightbulb, MapPin, Mail } from "lucide-react";
+import { 
+  Briefcase, 
+  GraduationCap, 
+  Terminal, 
+  Compass, 
+  Sparkles, 
+  ArrowUpRight,
+  Code2,
+  Cpu,
+  Layers
+} from "lucide-react";
 
-const timelineItems = [
+interface Milestone {
+  year: string;
+  role: string;
+  organization: string;
+  location: string;
+  type: "work" | "education";
+  description: string;
+  bullets: string[];
+  tech: string[];
+}
+
+const milestones: Milestone[] = [
   {
-    icon: GraduationCap,
-    title: "B.Tech Computer Science",
-    period: "Oct 2020 – Oct 2024",
-    description: "Bachelor of Technology at SVVV, Indore",
-    detail: "Focused on algorithms, data structures, and mathematics — the building blocks for ML",
+    year: "May 2026 – Present",
+    role: "Software Developer | AI/ML Engineer",
+    organization: "Mantra Softech",
+    location: "Ahmedabad, India",
+    type: "work",
+    description: "Developing production-grade machine learning and computer vision solutions for real-world enterprise applications.",
+    bullets: [
+      "Building and experimenting with deep learning pipelines for production deployment.",
+      "Performing high-throughput data preprocessing, feature extraction, and systematic evaluation.",
+      "Collaborating with cross-functional engineering teams to integrate ML models into core products.",
+      "Conducting rigorous error analysis and fine-tuning to minimize inference failures."
+    ],
+    tech: ["Python", "TensorFlow", "OpenCV", "Model Evaluation", "Docker", "FastAPI"],
   },
   {
-    icon: Code,
-    title: "CDAC PG-DAI Program",
-    period: "Aug 2025 – Feb 2026",
-    description: "Post Graduate Diploma in AI at CDAC, Noida",
-    detail: "Covered supervised/unsupervised learning, DNNs, CNNs, RNNs, GANs, NLP, LSTM, and Transformers",
+    year: "Aug 2025 – Feb 2026",
+    role: "Post Graduate Diploma in Artificial Intelligence (PG-DAI)",
+    organization: "Centre for Development of Advanced Computing (CDAC)",
+    location: "Noida, India",
+    type: "education",
+    description: "Rigorous postgraduate specialization in advanced neural network architectures, computer vision, and machine learning theory.",
+    bullets: [
+      "In-depth research on Modified U-Nets, Siamese U-Nets for satellite imagery, and DenseNet121 transfer learning.",
+      "Hands-on implementation of supervised/unsupervised learning, DNNs, CNNs, RNNs, GANs, and Transformers.",
+      "Focused heavily on empirical error analysis and diagnostic explainability (Grad-CAM)."
+    ],
+    tech: ["Deep Learning", "Computer Vision", "U-Net", "DenseNet", "Transfer Learning"],
   },
   {
-    icon: Brain,
-    title: "Deep Learning Focus",
-    period: "Current",
-    description: "Specialized in computer vision and deep learning architectures",
-    detail: "Working with CNNs, object detection models, and image segmentation techniques",
+    year: "Oct 2024 – Mar 2025",
+    role: "Web Developer Intern",
+    organization: "EDYYO",
+    location: "India",
+    type: "work",
+    description: "Engineered responsive client web interfaces and backend database integrations.",
+    bullets: [
+      "Developed and maintained client websites using HTML5, CSS3, JavaScript, Bootstrap, and PHP.",
+      "Designed mobile-responsive interfaces optimizing user experience and load speed.",
+      "Supported backend integration with MySQL databases and server-side PHP endpoints."
+    ],
+    tech: ["JavaScript", "HTML5", "CSS3", "PHP", "MySQL", "Responsive Design"],
   },
   {
-    icon: Lightbulb,
-    title: "Real-World Application",
-    period: "Ongoing",
-    description: "Building and evaluating models for practical problems",
-    detail: "Emphasis on experimentation, error analysis, and understanding model behavior",
+    year: "2020 – 2024",
+    role: "B.Tech in Computer Science",
+    organization: "Shri Vaishnav Vidyapeeth Vishwavidyalaya (SVVV)",
+    location: "Indore, India",
+    type: "education",
+    description: "Foundational computer science degree focusing on algorithms, discrete mathematics, and systems programming.",
+    bullets: [
+      "Mastered data structures, algorithms, linear algebra, and probability theory—the bedrock of machine learning.",
+      "Built initial machine learning classifiers and academic software engineering projects."
+    ],
+    tech: ["Algorithms", "Data Structures", "Linear Algebra", "Python", "SQL"],
   },
 ];
 
-const About = () => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [isCardHovered, setIsCardHovered] = useState(false);
+export default function About() {
+  const [activeMilestone, setActiveMilestone] = useState(0);
 
   return (
-    <section id="about" className="py-24 md:py-32 px-4">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-          A bit about <span className="text-gradient">me</span>
-        </h2>
-        
-        {/* About Card Box - Interactive with hover effects */}
-        <div 
-          className={`max-w-3xl mx-auto mb-20 p-8 md:p-10 rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-300 ${
-            isCardHovered ? "hover-glow-primary border-primary/30 -translate-y-1" : ""
-          }`}
-          onMouseEnter={() => setIsCardHovered(true)}
-          onMouseLeave={() => setIsCardHovered(false)}
-        >
-          <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
-            <p>
-              I'm an AI/ML engineer with a computer science background, currently focused on 
-              building and understanding machine learning systems. My approach prioritizes 
-              fundamentals over shortcuts — understanding why models work, not just how to 
-              make them run.
-            </p>
-            <p>
-              After completing my CDAC PGDAI specialization, I've been working on computer 
-              vision projects including object detection and image segmentation. I spend 
-              significant time on error analysis and model evaluation, believing that 
-              understanding failures is as important as celebrating successes.
-            </p>
-            <p>
-              I learn by building. Each project is an opportunity to deepen my understanding 
-              of the underlying mathematics, experiment with different approaches, and develop 
-              intuition for what works in practice.
-            </p>
+    <section id="about" className="relative py-28 px-4 sm:px-6 lg:px-10 max-w-7xl mx-auto z-10">
+      {/* Background glow */}
+      <div className="absolute top-1/3 right-10 w-[500px] h-[500px] bg-signal/10 blur-[140px] pointer-events-none rounded-full" />
+
+      {/* Section Header */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <div className="eyebrow flex items-center gap-2 mb-3">
+            <Compass className="w-3.5 h-3.5 text-signal" />
+            <span>004 / Narrative & Track Record</span>
           </div>
-          
-          {/* Location and contact as pill elements */}
-          <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
-            <span className="flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50 border border-border/50 text-muted-foreground hover:bg-muted hover:border-border transition-all duration-200 cursor-default">
-              <MapPin className="w-4 h-4 text-primary" />
-              Noida, India
-            </span>
-            <a 
-              href="mailto:pranavbaghare@gmail.com" 
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50 border border-border/50 text-muted-foreground hover:bg-primary/10 hover:border-primary/50 hover:text-foreground transition-all duration-200"
-            >
-              <Mail className="w-4 h-4 text-primary" />
-              pranavbaghare@gmail.com
-            </a>
+          <h2 className="text-3xl sm:text-5xl font-serif text-foreground tracking-tight">
+            Engineering Journey <span className="italic-emphasis">& Technical Philosophy</span>
+          </h2>
+        </div>
+        <p className="max-w-md text-sm text-muted-foreground leading-relaxed">
+          Grounding deep learning in first principles. Transitioning from academic specialization to enterprise production AI at Mantra Softech.
+        </p>
+      </div>
+
+      {/* Main Grid: Manifesto Left, Timeline Right */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        {/* LEFT (5 Columns): Engineering Manifesto */}
+        <div className="lg:col-span-5 space-y-6">
+          <div className="rounded-2xl border border-border/80 bg-card/60 backdrop-blur-xl p-6 sm:p-8 relative overflow-hidden">
+            <div className="flex items-center gap-2 font-mono text-xs text-signal uppercase tracking-wider mb-4">
+              <Terminal className="w-4 h-4" />
+              <span>Core Engineering Principles</span>
+            </div>
+
+            <h3 className="text-xl font-serif font-semibold text-foreground mb-4">
+              "Understanding why models fail is just as critical as measuring where they succeed."
+            </h3>
+
+            <div className="space-y-4 text-sm text-muted-foreground leading-relaxed font-sans">
+              <p>
+                Too often, machine learning is treated as a black-box commodity—plugging datasets into off-the-shelf scripts without inspecting data distribution drift or loss surfaces.
+              </p>
+              <p>
+                My methodology is rooted in <strong className="text-foreground">first-principles experimentation</strong>: examining failure modes, decomposing features through Grad-CAM attention heatmaps, and engineering targeted weak-supervision heuristics when ground-truth labels are scarce.
+              </p>
+              <p>
+                At <strong className="text-foreground">Mantra Softech</strong> and during my <strong className="text-foreground">CDAC PG-DAI</strong> specialization, I have worked across the entire model lifecycle—from multispectral geospatial ingestion to sub-5ms low-latency inference serving.
+              </p>
+            </div>
+
+            {/* Quick Stat Pill Grid */}
+            <div className="grid grid-cols-2 gap-3 mt-6 pt-6 border-t border-border/40 font-mono text-xs">
+              <div className="rounded-lg bg-muted/40 p-3 border border-border/40">
+                <div className="text-[10px] text-muted-foreground uppercase">Current Role</div>
+                <div className="font-semibold text-foreground mt-0.5">AI/ML Engineer</div>
+                <div className="text-[11px] text-signal">Mantra Softech</div>
+              </div>
+
+              <div className="rounded-lg bg-muted/40 p-3 border border-border/40">
+                <div className="text-[10px] text-muted-foreground uppercase">Research Focus</div>
+                <div className="font-semibold text-foreground mt-0.5">Computer Vision</div>
+                <div className="text-[11px] text-signal">U-Net & DenseNet</div>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* My Journey Timeline */}
-        <h3 className="text-2xl font-semibold text-center mb-12 text-foreground">
-          My Journey
-        </h3>
-        
-        <div className="relative">
-          {/* Connecting line */}
-          <div 
-            className={`absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-secondary to-accent transition-opacity duration-300 ${
-              hoveredIndex !== null ? "opacity-50" : "opacity-30"
-            }`} 
-          />
+        {/* RIGHT (7 Columns): Laser-Traced Interactive Timeline */}
+        <div className="lg:col-span-7 space-y-4">
+          {milestones.map((item, index) => {
+            const isActive = activeMilestone === index;
+            const Icon = item.type === "work" ? Briefcase : GraduationCap;
 
-          <div className="space-y-10">
-            {timelineItems.map((item, index) => {
-              const Icon = item.icon;
-              const isEven = index % 2 === 0;
-              const isHovered = hoveredIndex === index;
+            return (
+              <div
+                key={item.organization}
+                onClick={() => setActiveMilestone(index)}
+                className={`rounded-2xl border p-6 transition-all duration-300 cursor-pointer relative overflow-hidden group ${
+                  isActive
+                    ? "bg-card/85 border-signal/60 shadow-[0_8px_30px_rgba(255,91,46,0.12)] scale-[1.01]"
+                    : "bg-card/40 border-border/60 hover:border-border hover:bg-card/60"
+                }`}
+              >
+                {/* Active indicator bar */}
+                {isActive && (
+                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-signal" />
+                )}
 
-              return (
-                <div
-                  key={item.title}
-                  className={`relative flex items-center gap-8 ${isEven ? "md:flex-row" : "md:flex-row-reverse"}`}
-                  onMouseEnter={() => setHoveredIndex(index)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                >
-                  {/* Content card */}
-                  <div className={`flex-1 ml-20 md:ml-0 ${isEven ? "md:text-right md:pr-12" : "md:text-left md:pl-12"}`}>
-                    <div 
-                      className={`p-6 rounded-xl border bg-card/50 transition-all duration-300 ${
-                        isHovered 
-                          ? "border-primary/50 hover-glow-primary -translate-y-1" 
-                          : "border-border/50"
-                      }`}
-                    >
-                      <span className="text-xs font-medium text-primary uppercase tracking-wider">
-                        {item.period}
-                      </span>
-                      <h4 className="text-xl font-semibold mt-2 mb-2">{item.title}</h4>
-                      <p className="text-muted-foreground text-sm">{item.description}</p>
-                      
-                      {/* Hover detail */}
-                      <div className={`overflow-hidden transition-all duration-300 ${isHovered ? "max-h-20 mt-3 opacity-100" : "max-h-0 opacity-0"}`}>
-                        <p className="text-sm text-accent">{item.detail}</p>
-                      </div>
-                    </div>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                  <div className="flex items-center gap-2">
+                    <span className="p-1.5 rounded-lg bg-signal/15 text-signal">
+                      <Icon className="w-4 h-4" />
+                    </span>
+                    <span className="font-serif text-lg font-semibold text-foreground">
+                      {item.role}
+                    </span>
                   </div>
 
-                  {/* Icon node */}
-                  <div 
-                    className={`absolute left-4 md:left-1/2 md:-translate-x-1/2 w-10 h-10 rounded-full bg-background border-2 flex items-center justify-center transition-all duration-300 ${
-                      isHovered ? "border-primary scale-110 shadow-lg shadow-primary/20" : "border-muted"
-                    }`}
-                  >
-                    <Icon className={`w-5 h-5 transition-colors duration-200 ${isHovered ? "text-primary" : "text-muted-foreground"}`} />
-                  </div>
-
-                  {/* Spacer for alternating layout */}
-                  <div className="hidden md:block flex-1" />
+                  <span className="font-mono text-xs text-signal font-semibold">
+                    {item.year}
+                  </span>
                 </div>
-              );
-            })}
-          </div>
+
+                <div className="text-xs font-mono text-muted-foreground mb-3 flex items-center gap-2">
+                  <span className="text-foreground font-medium">{item.organization}</span>
+                  <span>·</span>
+                  <span>{item.location}</span>
+                </div>
+
+                <p className="text-sm text-foreground/80 mb-4 leading-relaxed font-sans">
+                  {item.description}
+                </p>
+
+                {/* Bullets (Expanded if active) */}
+                {isActive && (
+                  <div className="space-y-2 mb-4 pt-3 border-t border-border/40 animate-fade-in">
+                    {item.bullets.map((b, bi) => (
+                      <div key={bi} className="flex items-start gap-2 text-xs text-muted-foreground leading-normal font-sans">
+                        <span className="text-signal font-bold mt-0.5">•</span>
+                        <span>{b}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* Tech Pills */}
+                <div className="flex flex-wrap gap-1.5 pt-2">
+                  {item.tech.map((t) => (
+                    <span
+                      key={t}
+                      className="rounded-full bg-muted/60 border border-border/40 px-2.5 py-0.5 font-mono text-[10px] text-foreground/80"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
         </div>
+
       </div>
     </section>
   );
-};
-
-export default About;
+}

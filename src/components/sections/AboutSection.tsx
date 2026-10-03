@@ -1,4 +1,5 @@
 import { Eye, Network, Box, ArrowRight } from "lucide-react";
+import SectionNeuralWave from "@/components/3d/SectionNeuralWave";
 
 export default function AboutSection() {
   const scrollTo = (id: string) => {
@@ -9,8 +10,10 @@ export default function AboutSection() {
   };
 
   return (
-    <section id="about" className="relative py-20 sm:py-24 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto z-10">
-      {/* 2-Column Layout */}
+    <section id="about" className="relative w-full overflow-hidden z-10">
+      <SectionNeuralWave sectionIndex={1} sectionId="about" />
+      <div className="relative z-10 max-w-7xl mx-auto py-20 sm:py-24 px-6 sm:px-8 lg:px-12">
+        {/* 2-Column Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
         {/* Left Column (7 Cols) */}
         <div className="lg:col-span-7">
@@ -91,6 +94,7 @@ export default function AboutSection() {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

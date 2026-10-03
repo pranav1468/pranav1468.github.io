@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ArrowRight, FileText, Mail, Github, Linkedin, Check } from "lucide-react";
 import confetti from "canvas-confetti";
+import SectionNeuralWave from "@/components/3d/SectionNeuralWave";
 
 export default function HeroSection() {
   const [copied, setCopied] = useState(false);
@@ -35,8 +36,10 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="home" className="relative min-h-[88vh] flex items-center pt-28 pb-16 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto z-10">
-      <div className="max-w-3xl lg:max-w-4xl">
+    <section id="home" className="relative w-full min-h-[90vh] flex items-center overflow-hidden z-10">
+      <SectionNeuralWave sectionIndex={0} sectionId="home" />
+      <div className="relative z-10 w-full max-w-7xl mx-auto pt-28 pb-16 px-6 sm:px-8 lg:px-12">
+        <div className="max-w-3xl lg:max-w-4xl">
         {/* Eyebrow */}
         <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-white/50 mb-5">
           <span className="font-semibold text-white/80">01</span>
@@ -122,6 +125,7 @@ export default function HeroSection() {
             <span>LinkedIn</span>
           </a>
         </div>
+      </div>
       </div>
     </section>
   );

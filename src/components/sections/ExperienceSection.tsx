@@ -1,9 +1,12 @@
 import { Building2, MapPin } from "lucide-react";
+import SectionNeuralWave from "@/components/3d/SectionNeuralWave";
 
 export default function ExperienceSection() {
   return (
-    <section id="experience" className="relative py-20 sm:py-24 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto z-10">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+    <section id="experience" className="relative w-full overflow-hidden z-10">
+      <SectionNeuralWave sectionIndex={3} sectionId="experience" />
+      <div className="relative z-10 max-w-7xl mx-auto py-20 sm:py-24 px-6 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
         {/* Left Column (5 Cols) */}
         <div className="lg:col-span-5">
           <div className="font-mono text-xs text-white/50 uppercase tracking-widest mb-4">
@@ -68,6 +71,7 @@ export default function ExperienceSection() {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

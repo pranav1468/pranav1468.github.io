@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ArrowRight, ArrowUpRight, X, Clock, Calendar, BookOpen } from "lucide-react";
+import SectionNeuralWave from "@/components/3d/SectionNeuralWave";
 
 interface Post {
   id: string;
@@ -61,8 +62,10 @@ export default function WritingSection() {
   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
 
   return (
-    <section id="writing" className="relative py-20 sm:py-24 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto z-10">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+    <section id="writing" className="relative w-full overflow-hidden z-10">
+      <SectionNeuralWave sectionIndex={5} sectionId="writing" />
+      <div className="relative z-10 max-w-7xl mx-auto py-20 sm:py-24 px-6 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
         {/* Left Column (4 Cols) */}
         <div className="lg:col-span-4">
           <div className="font-mono text-xs text-white/50 uppercase tracking-widest mb-4">
@@ -129,6 +132,7 @@ export default function WritingSection() {
             </div>
           ))}
         </div>
+      </div>
       </div>
 
       {/* Reader Modal */}

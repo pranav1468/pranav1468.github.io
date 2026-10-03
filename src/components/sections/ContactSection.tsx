@@ -1,6 +1,7 @@
 import { Mail, Github, Linkedin, Copy, Check } from "lucide-react";
 import { useState } from "react";
 import confetti from "canvas-confetti";
+import SectionNeuralWave from "@/components/3d/SectionNeuralWave";
 
 export default function ContactSection() {
   const [copied, setCopied] = useState(false);
@@ -19,7 +20,9 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative pt-20 sm:pt-24 pb-16 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto z-10">
+    <section id="contact" className="relative w-full overflow-hidden z-10">
+      <SectionNeuralWave sectionIndex={7} sectionId="contact" />
+      <div className="relative z-10 max-w-7xl mx-auto pt-20 sm:pt-24 pb-16 px-6 sm:px-8 lg:px-12">
       {/* 08 / CONTACT */}
       <div className="font-mono text-xs text-white/50 uppercase tracking-widest mb-4">
         08 / CONTACT
@@ -92,6 +95,7 @@ export default function ContactSection() {
           Turning data into a safer, cleaner, and brighter tomorrow.
         </div>
       </footer>
+      </div>
     </section>
   );
 }

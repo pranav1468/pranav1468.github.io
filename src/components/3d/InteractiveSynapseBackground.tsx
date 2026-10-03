@@ -227,22 +227,12 @@ export default function InteractiveSynapseBackground() {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {/* 1. High-Resolution Bioluminescent Cosmic Neural Synapse Background Image */}
-      <picture className="absolute inset-0 w-full h-full">
-        <source media="(max-width: 768px)" srcSet="/assets/bg/neural-synapse-mobile.jpg" />
-        <img
-          src="/assets/bg/neural-synapse-desktop.jpg"
-          alt="Cosmic Neural Network Synapse Background"
-          className="w-full h-full object-cover opacity-60 brightness-[0.85] contrast-[1.1] select-none"
-        />
-      </picture>
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#030712]">
+      {/* 1. Global deep space dark gradient vignette overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#030712] via-transparent to-[#030712] pointer-events-none" />
 
-      {/* 2. Deep space dark gradient vignette overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#030712]/75 via-[#030712]/60 to-[#030712]/90 pointer-events-none" />
-
-      {/* 3. Three.js Interactive 3D Neural Particle Canvas (tracks cursor) */}
-      <div ref={mountRef} className="absolute inset-0 pointer-events-none" />
+      {/* 2. Three.js Interactive 3D Neural Particle Canvas (tracks cursor) */}
+      <div ref={mountRef} className="absolute inset-0 pointer-events-none z-10" />
     </div>
   );
 }
